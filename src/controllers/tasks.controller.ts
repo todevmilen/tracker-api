@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import {
   createTaskService,
+  deleteTaskService,
   updateTaskService,
 } from "../services/tasks.services";
 import { Prisma } from "@prisma/client";
@@ -33,6 +34,16 @@ export const updateTaskController = async (req: Request, res: Response) => {
       isDone: req.body.isDone,
     };
     const task = await updateTaskService(props);
+    res.status(200).send(task);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const deleteTaskController = async (req: Request, res: Response) => {
+  try {
+    const taskId: number = req.body.taskId;
+    const task = await deleteTaskService(taskId);
     res.status(200).send(task);
   } catch (error) {
     console.log(error);

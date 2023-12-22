@@ -38,3 +38,15 @@ export const updateTaskService = async (task: TaskUpdateInput) => {
 
   return newTask;
 };
+// -------------------------Delete Task-----------------------
+export const deleteTaskService = async (taskId: number) => {
+  const prisma = new PrismaClient();
+
+  const deleteTask = await prisma.task.delete({
+    where: {
+      id: taskId,
+    },
+  });
+
+  return deleteTask;
+};
