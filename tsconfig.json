@@ -1,0 +1,21 @@
+{
+  "exclude": ["./dist", "__tests__", "jest.config.js"],
+  "ts-node": {
+    "transpileOnly": true,
+    "files": true
+  },
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "CommonJS",
+    "rootDir": ".",
+    "moduleResolution": "node",
+    "checkJs": true,
+    "outDir": "./dist",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    // "noImplicitAny": true,
+    "skipLibCheck": true
+  }
+}
