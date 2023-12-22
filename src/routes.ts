@@ -5,6 +5,7 @@ import {
   createTaskController,
   updateTaskController,
   deleteTaskController,
+  getTasksController,
 } from "./controllers/tasks.controller";
 const router = express.Router();
 
@@ -16,5 +17,6 @@ router.post("/createUser", createUser);
 router.post("/createTask", createTaskController);
 router.post("/updateTask", updateTaskController);
 router.delete("/deleteTask", deleteTaskController);
+router.get("/tasks", getTasksController);
 
 export default router;

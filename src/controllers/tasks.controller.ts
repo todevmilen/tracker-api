@@ -3,6 +3,7 @@ import {
   createTaskService,
   deleteTaskService,
   updateTaskService,
+  getTasksService,
 } from "../services/tasks.services";
 import { Prisma } from "@prisma/client";
 
@@ -45,6 +46,15 @@ export const deleteTaskController = async (req: Request, res: Response) => {
     const taskId: number = req.body.taskId;
     const task = await deleteTaskService(taskId);
     res.status(200).send(task);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getTasksController = async (req: Request, res: Response) => {
+  try {
+    const allTasks = await getTasksService();
+    res.status(200).send(allTasks);
   } catch (error) {
     console.log(error);
   }
